@@ -90,7 +90,7 @@ const storageCostTotal = document.getElementById('storage-cost');
 const deliveryCost = document.getElementById('delivery-cost');
 const totalAmount = document.getElementById('total-price');
 const promoCode = document.getElementById('promo-code');
-const discountPriceFirst = document.getElementById('discount-price');
+const discountPrice = document.getElementById('discount-price');
 
 
 /* Extra memory cost */
@@ -133,18 +133,18 @@ document.getElementById('delivery-btn-second').addEventListener('click', functio
 // update total price 
 function totalCost() {
     const bestPrice = parseFloat(basePrice.innerText);
-    const extraMemoryCost = parseFloat(memoryCostTotal.innerText);
-    const extraStorageCost = parseFloat(storageCostTotal.innerText);
-    const expressDeliveryCost = parseFloat(deliveryCost.innerText);
-    const typedCode = promoCode.value;
-    const totalPrice = bestPrice + extraMemoryCost + extraStorageCost + expressDeliveryCost;
+    const addMemoryCost = parseFloat(memoryCostTotal.innerText);
+    const addStorageCost = parseFloat(storageCostTotal.innerText);
+    const addDeliveryCost = parseFloat(deliveryCost.innerText);
+    const coupon = promoCode.value;
+    const totalPrice = bestPrice + addMemoryCost + addStorageCost + addDeliveryCost;
     totalAmount.innerText = totalPrice;
-    if (typedCode == 'stevekaku') {
+    if (coupon == 'stevekaku') {
         const discountPriceTotal = totalPrice * 20 / 100;
-        discountPriceFirst.innerText = totalPrice - discountPriceTotal;
+        discountPrice.innerText = totalPrice - discountPriceTotal;
     }
     else {
-        discountPriceFirst.innerText = totalPrice;
+        discountPrice.innerText = totalPrice;
     } promoCode.value = '';
     return totalAmount;
 }
