@@ -8,7 +8,6 @@ const totalAmount = document.getElementById('total-price');
 const promoCode = document.getElementById('promo-code');
 const discountPrice = document.getElementById('discount-price');
 
-
 //memory cost 
 document.getElementById('memory-btn-first').addEventListener('click', function () {
     memoryCostTotal.innerText = 0;
@@ -46,6 +45,8 @@ document.getElementById('delivery-btn-second').addEventListener('click', functio
     totalCost()
 })
 
+
+
 // update total price 
 function totalCost() {
     const bestPrice = parseFloat(basePrice.innerText);
@@ -57,13 +58,15 @@ function totalCost() {
     totalAmount.innerText = totalPrice;
 
     // coupon code check
+
     if (coupon == 'stevekaku') {
         const discountPriceTotal = totalPrice * 20 / 100;
         discountPrice.innerText = totalPrice - discountPriceTotal;
     }
     else {
         discountPrice.innerText = totalPrice;
-    } promoCode.value = '';
+    }
+    promoCode.value = '';
     return totalAmount;
 }
 
